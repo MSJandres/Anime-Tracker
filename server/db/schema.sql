@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS animeTracker;
+CREATE DATABASE animeTracker;
