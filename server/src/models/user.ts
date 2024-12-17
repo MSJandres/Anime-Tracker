@@ -29,6 +29,7 @@ export function usersFactory(sequelize: Sequelize) {
             username: {
                 type: DataTypes.STRING,
                 allowNull: false,
+                unique: true,
                 validate: {
                     isUsername: true
                 }

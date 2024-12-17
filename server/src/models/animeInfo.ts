@@ -17,7 +17,7 @@ export class animeInfo extends Model<
     declare year: number;
     declare genre: string;
     declare review: number;
-    declare topAnime: boolean;
+    declare topAnime: CreationOptional<boolean>;
 }
 
 export function animeInfoFactory(sequelize: Sequelize) {
