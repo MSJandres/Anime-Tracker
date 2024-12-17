@@ -38,7 +38,7 @@ export function animeInfoFactory(sequelize: Sequelize) {
                 allowNull: false
             },
             year: {
-                type: DataTypes.NUMBER,
+                type: DataTypes.INTEGER,
                 allowNull: false
             },
             genre: {
@@ -46,7 +46,7 @@ export function animeInfoFactory(sequelize: Sequelize) {
                 allowNull: false
             },
             review: {
-                type: DataTypes.NUMBER,
+                type: DataTypes.INTEGER,
                 allowNull: false
             },
             topAnime: {
