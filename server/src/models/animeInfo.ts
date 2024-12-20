@@ -1,11 +1,12 @@
-import { 
+import {
     type CreationOptional,
     DataTypes,
     type InferAttributes,
     type InferCreationAttributes,
     Model,
-    type Sequelize }
-from "sequelize";
+    type Sequelize
+}
+    from "sequelize";
 
 export class animeInfo extends Model<
     InferAttributes<animeInfo>,
@@ -62,5 +63,6 @@ export function animeInfoFactory(sequelize: Sequelize) {
             modelName: 'animeCard',
             freezeTableName: true
         }
-    )
-}
+    );
+    return animeInfoFactory;
+};

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import type { Request, Response } from "express";
 import { animeInfo } from "../../models/animeInfo.js";
-import { Users } from "../../models/index.js";
+import { Review, Users } from "../../models/index.js";
 
 const router = Router();
 
@@ -47,7 +47,7 @@ router.post('/users', async (req: Request, res: Response) => {
 
 /////////////////////////////////GET ROUTES
 //GET /animeInfo - get all anime info for card
-router.get('/', async(_req: Request, res: Response) => {
+router.get('/', async (_req: Request, res: Response) => {
     try {
         const animeInfoMult = await animeInfo.findAll();
         res.status(200).json(animeInfoMult);
@@ -59,10 +59,11 @@ router.get('/', async(_req: Request, res: Response) => {
 });
 
 //GET /animeInfo/:id - get animeInfo by ID
-router.get('/:id', async(req: Request, res: Response) => {
+router.get('/:id', async (req: Request, res: Response) => {
     try {
         const id = req.params.id;
         const animeInfoID = await animeInfo.findByPk(id);
+        include: [{ model: Review }]
         if (animeInfoID) {
             res.status(200).json(animeInfoID);
         } else {
@@ -78,7 +79,7 @@ router.get('/:id', async(req: Request, res: Response) => {
 });
 
 //GET /Users - get all login credentials from User
-router.get('/users', async(_req: Request, res: Response) => {
+router.get('/users', async (_req: Request, res: Response) => {
     try {
         const logins = await Users.findAll();
         res.status(200).json(logins);
@@ -91,7 +92,7 @@ router.get('/users', async(_req: Request, res: Response) => {
 
 ///////////////////////////////PUT ROUTES
 //PUT /animeInfo/:id - update animeInfo by ID
-router.put('/:id', async(req: Request, res: Response) => {
+router.put('/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
     const body = req.body;
     try {
@@ -118,7 +119,7 @@ router.put('/:id', async(req: Request, res: Response) => {
 });
 
 //PUT /User - update User username/password
-router.put('/users', async(req: Request, res: Response) => {
+router.put('/users', async (req: Request, res: Response) => {
     const body = req.body;
     try {
         const login = await Users.findByPk();
@@ -143,10 +144,10 @@ router.put('/users', async(req: Request, res: Response) => {
 
 ///////////////////////////////DELETE ROUTES
 //DELETE /animeInfo/:id - delete anime info by ID
-router.delete('/:id', async(req: Request, res: Response) => {
+router.delete('/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
     try {
-        await animeInfo.destroy({ where: { id: id }});
+        await animeInfo.destroy({ where: { id: id } });
         res.status(200).json({
             message: "Anime Info Card has been deleted."
         });
@@ -158,7 +159,7 @@ router.delete('/:id', async(req: Request, res: Response) => {
 });
 
 //DELETE /User - self explanatory
-router.delete('/users', async(_req: Request, res: Response) => {
+router.delete('/users', async (_req: Request, res: Response) => {
     try {
         await Users.destroy();
         res.status(200).json({
