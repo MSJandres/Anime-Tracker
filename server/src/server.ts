@@ -3,6 +3,7 @@ import sequelize from './config/connections.js';
 import routes from './routes/index.js';
 import axios from 'axios';
 import dotenv from 'dotenv';
+const forceDatabaseRefresh = false;
 
 dotenv.config();
 
@@ -32,6 +33,6 @@ app.get('/anime/:title', async (req, res) => {
     }
 });
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: forceDatabaseRefresh }).then(() => {
     app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
 });
