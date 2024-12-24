@@ -1,25 +1,25 @@
 // import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
 import "../style/index.css"
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 
 function Home() {
-    const [topAnime, setTopAnime] = useState([]);
-    // const [search, setSearch] = useState([]);
+    // const [topAnime, setTopAnime] = useState([]);
+    // // const [search, setSearch] = useState([]);
 
-    const getTopAnime = async () => {
-        const temp = await fetch("https://api.jikan.moe/v4/top/anime").then((res) =>
-            res.json()
-        );
+    // const getTopAnime = async () => {
+    //     const temp = await fetch("https://api.jikan.moe/v4/top/anime").then((res) =>
+    //         res.json()
+    //     );
 
-        setTopAnime(temp.top.slice(0, 5));
-    };
+    //     setTopAnime(temp.top.slice(0, 5));
+    // };
 
 
-    useEffect(() => {
-        getTopAnime();
-    }, []);
-    console.log(topAnime);
+    // useEffect(() => {
+    //     getTopAnime();
+    // }, []);
+    // console.log(topAnime);
 
     return (
         <div className="bg-image">
