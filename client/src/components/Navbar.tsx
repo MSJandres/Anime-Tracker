@@ -34,6 +34,16 @@ const Navbar = () => {
             Logout
           </button>
         )}
+        <div>
+          <button className='btn' type='button'>
+            <Link to='/signup'>Signup</Link>
+          </button>
+        </div>
+        <div>
+          <button className='btn' type='button'>
+            <Link to='/'>home</Link>
+          </button>
+        </div>
       </div>
     </div>
   );
