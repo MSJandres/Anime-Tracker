@@ -10,12 +10,7 @@
   background-image: url('../assets/1081458.jpg');
   background-size: cover;
 }
-.app-container {
-  background-image: url('../images/background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-}
+
 
 header {
   padding-top: 50px;
