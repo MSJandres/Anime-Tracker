@@ -11,32 +11,27 @@ function Side({ topAnime }) {
 }) => (
                 <a 
                 href={anime.url} 
-                target='_blank' 
                 rel='noreferrer'>
                     {anime.title}
                 </a>
             ))}
             <a 
-            href='#' 
-            target='_blank' 
+            href='#'
             rel='noreferrer'>
                 Attack on Titan
             </a>
             <a 
-            href='#' 
-            target='_blank' 
+            href='#'
             rel='noreferrer'>
                 Naruto
             </a>
             <a 
-            href='#' 
-            target='_blank' 
+            href='#'
             rel='noreferrer'>
                 One Piece
             </a>
             <a 
-            href='#' 
-            target='_blank' 
+            href='#'
             rel='noreferrer'>
                 Hunter x Hunter
             </a>
