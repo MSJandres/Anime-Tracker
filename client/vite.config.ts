@@ -6,7 +6,17 @@ export default defineConfig({
   server: {
     proxy: {
       '/api/jikan': 'https://api.jikan.moe/v4',
-      '/api/animechan': 'https://animechan.xyz/api'
+      '/api/animechan': 'https://animechan.xyz/api',
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/auth': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        secure: false,
+      },
     }
   }
 })

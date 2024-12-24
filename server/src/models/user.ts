@@ -1,16 +1,18 @@
-import { 
+import {
     DataTypes,
     type InferAttributes,
     type InferCreationAttributes,
     Model,
-    type Sequelize }
-from "sequelize";
+    type Sequelize
+}
+    from "sequelize";
 import bcrypt from 'bcrypt';
 
 export class Users extends Model<
     InferAttributes<Users>,
     InferCreationAttributes<Users>
 > {
+    declare id: number;
     declare username: string;
     declare password: string;
 
@@ -26,13 +28,15 @@ export class Users extends Model<
 export function usersFactory(sequelize: Sequelize) {
     Users.init(
         {
+            id: {
+                type: DataTypes.INTEGER,
+                autoIncrement: true,
+                primaryKey: true,
+            },
             username: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 unique: true,
-                validate: {
-                    isUsername: true
-                }
             },
             password: {
                 type: DataTypes.STRING,
@@ -55,7 +59,7 @@ export function usersFactory(sequelize: Sequelize) {
                         } catch (error) {
                             console.error(error);
                         }
-                    } 
+                    }
                 }
             },
             sequelize,
