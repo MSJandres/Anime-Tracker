@@ -5,9 +5,9 @@ import Anime from "./components/Anime";
 import Footer from "./components/Footer";
 
 function App() {
-  const [animeList, setAnimeList] = useState([]);
+  // const [animeList, setAnimeList] = useState([]);
   const [topAnime, setTopAnime] = useState([]);
-  const [search, setSearch] = useState([]);
+  // const [search, setSearch] = useState([]);
 
   const getTopAnime = async () => {
     const temp = await fetch("https://api.jikan.moe/v4/top/anime").then((res) =>
@@ -17,18 +17,18 @@ function App() {
     setTopAnime(temp.top.slice(0, 5));
   };
 
-  const handleSearch = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+  // const handleSearch = (e: { preventDefault: () => void }) => {
+  //   e.preventDefault();
 
-    fetchAnime(search);
-  };
+  //   fetchAnime(search);
+  // };
 
-  const fetchAnime = async (query: any) => {
-    const temp = await fetch (`https://api.jikan.moe/v4/top/anime=${query}`)
-      .then(res => res.json());
+  // const fetchAnime = async (query: any) => {
+  //   const temp = await fetch (`https://api.jikan.moe/v4/top/anime=${query}`)
+  //     .then(res => res.json());
 
-      setAnimeList(temp.results);
-  }
+  //     setAnimeList(temp.results);
+  // }
   useEffect(() => {
     getTopAnime();
   }, []);
@@ -40,11 +40,12 @@ function App() {
         <div className="App">
           <Header />
           <div className="content-wrap"></div>
-          <Side topAnime={topAnime} />
+          {/* <Side topAnime={topAnime} /> */}
+          <Side />
           <Anime
-            handleSearch={handleSearch}
-            search={search}
-            animeList={animeList}
+            // handleSearch={handleSearch}
+            // search={search}
+            // animeList={animeList}
           />
           <Footer />
         </div>
