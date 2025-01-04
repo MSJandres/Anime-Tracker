@@ -17,9 +17,14 @@
     "render-build": "npm install && npm run build"
   },
   "dependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.4",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.7.9",
-    "react-router-dom": "^7.0.2"
+    "express": "^4.21.2",
+    "react-router-dom": "^7.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",

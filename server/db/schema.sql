@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS animetracker;
-CREATE DATABASE animetracker;
+DROP DATABASE IF EXISTS anime_tracker;
+CREATE DATABASE anime_tracker;
